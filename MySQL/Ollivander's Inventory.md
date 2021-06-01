@@ -18,3 +18,12 @@ Wands_Property Table:
 
 
 **Solution**
+
+````sql
+select w.id, wp.age, t.coins, t.power from 
+(select min(coins_needed) as coins, code, power from wands group by code, power) as t
+inner join wands_property as wp on t.code = wp.code 
+inner join wands as w on t.code = w.code and t.power = w.power and w.coins_needed = t.coins
+where wp.is_evil = 0
+order by t.power desc, wp.age desc;
+````
