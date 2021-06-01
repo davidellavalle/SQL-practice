@@ -1,14 +1,15 @@
 **TOP COMPETITORS**
-/*
+
 Julia just finished conducting a coding contest, and she needs your help assembling the leaderboard! 
 Write a query to print the respective hacker_id and name of hackers who achieved full scores for more than one challenge. 
 Order your output in descending order by the total number of challenges in which the hacker earned a full score. 
 If more than one hacker received full scores in same number of challenges, then sort them by ascending hacker_id.
-*/
-declare @Hackers Table (Hacker_Id int, Name varchar(20))
-declare @Difficulty Table (Difficulty_Level Int, Score Int)
-declare @Challenges Table (Challenge_Id int, Hacker_Id int, Difficulty_Level int)
-declare @Submissions Table (Submission_ID int, Hacker_Id int, Challenge_Id int, Score int)
+
+Input Format
+
+ ![alt text](https://s3.amazonaws.com/hr-challenge-images/19504/1458526776-67667350b4-ScreenShot2016-03-21at7.45.59AM.png)
+Hackers: The hacker_id is the id of the hacker, and name is the name of the hacker
+
 
 insert into @Hackers Values (5580, 'Rose'), (8439,'Angela'),(27205,'Frank'),(52243,'Patrick'),(52348,'Lisa'),(57645,'Kimberly'),(77726,'Bonnie'),(83082,'Michael'),(86870,'Todd'),(90411,'Joe')
 insert into @Difficulty values (1,20),(2,30),(3,40),(4,60),(5,80),(6,100),(7,120)
