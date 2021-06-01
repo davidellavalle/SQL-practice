@@ -15,3 +15,6 @@ Wands_Property: The code is the code of the wand, age is the age of the wand, an
 Wands Table:   
  ![alt text](https://s3.amazonaws.com/hr-challenge-images/19502/1458538583-fd514566f9-ScreenShot2016-03-21at10.34.28AM.png)
 Wands_Property Table:  
+
+
+**Solution**
