@@ -27,3 +27,6 @@ inner join wands as w on t.code = w.code and t.power = w.power and w.coins_neede
 where wp.is_evil = 0
 order by t.power desc, wp.age desc;
 ````
+
+**Link:**  
+https://www.hackerrank.com/challenges/harry-potter-and-wands/problem?utm_campaign=challenge-recommendation&utm_medium=email&utm_source=24-hour-campaign&h_r=next-challenge&h_v=zen
