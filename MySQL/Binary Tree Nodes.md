@@ -39,3 +39,6 @@ end as node
 from BST
 order by N;
 ````
+
+**Link**
+https://www.hackerrank.com/challenges/binary-search-tree-1/problem
