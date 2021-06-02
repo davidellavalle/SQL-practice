@@ -26,8 +26,16 @@ Explanation
 The Binary Tree below illustrates the sample:
 ![alt text](https://s3.amazonaws.com/hr-challenge-images/12888/1443773633-f9e6fd314e-simply_sql_bst.png)
 
-**Solution**
+**Solution with table created for MySQL**
 ````sql
 create table tree(N int,P int);
 insert into tree values(1,2),(3,2),(6,8),(9,8),(2,5),(8,5),(5,null);
+
+select N, case 
+when P is null then "Root" 
+when N in(select P from BST) then "Inner" 
+else "Leaf" 
+end as node 
+from BST
+order by N;
 ````
