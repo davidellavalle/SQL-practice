@@ -42,5 +42,26 @@ C2 Samantha 1 1 2 2
 In company C1, the only lead manager is LM1. There are two senior managers, SM1 and SM2, under LM1. There is one manager, M1, under senior manager SM1. There are two employees, E1 and E2, under manager M1.  
 In company C2, the only lead manager is LM2. There is one senior manager, SM3, under LM2. There are two managers, M2 and M3, under senior manager SM3. There is one employee, E3, under manager M2, and another employee, E4, under manager, M3.  
 
-**Solution:**
+**Solution:**  
+1st and longer using inner join
 ````sql
+select d.company_code, d.founder, count(distinct d.lead_manager_code), count(distinct d.senior_manager_code),
+count(distinct d.manager_code),count(distinct d.employee_code) from
+(select y.company_code, y.founder, y.lead_manager_code,y.senior_manager_code, y.manager_code, employee_code from
+(select x.company_code, x.founder, x.lead_manager_code,x.senior_manager_code, manager_code
+ from (select t.company_code, t.founder, t.lead_manager_code,senior_manager_code 
+from(select c.company_code, founder, lead_manager_code from company c inner join lead_manager lm 
+on c.company_code = lm.company_code) as t inner join senior_manager as sm on t.company_code=sm.company_code) as x
+inner join manager as m on x.company_code = m.company_code) as y inner join employee e 
+on y.company_code=e.company_code) as d group by d.company_code order by d.company_code;
+````
+2nd and shorter without join but using where statement to join the tables on primary key company_code
+````sql
+select c.company_code, c.founder, count(distinct l.lead_manager_code), count(distinct s.senior_manager_code),
+count(distinct s.senior_manager_code), count(distinct m.manager_code), count(distinct e.employee_code)
+from company c, lead_manager l, senior_manager s, manager m, employee e where c.company_code=l.company_code 
+and l.company_code=s.company_code and s.company_code = m.company_code and m.company_code=e.company_code 
+group by c.company_code, c.founder order by c.company_code;
+````
+note: without group by we would reach just 1 result
+
