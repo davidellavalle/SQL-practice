@@ -48,3 +48,7 @@ Students  and  both created  challenges, but the maximum number of challenges cr
 For Sample Case 1, we can get the following details:  
 ![alt text](https://s3.amazonaws.com/hr-challenge-images/19506/1458521836-24039e7523-ScreenShot2016-03-21at6.08.08AM.png)  
 Students  and  both created  challenges. Because  is the maximum number of challenges created, these students are included in the result.  
+
+**SOLUTION**
+````sql
+````
