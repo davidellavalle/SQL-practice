@@ -12,3 +12,6 @@ The CITY and COUNTRY tables are described as follows:
 
 
 **Solution:**
+````sql
+select sum(city.population) from city inner join country on CITY.CountryCode = COUNTRY.Code where country.continent = "Asia";
+````
