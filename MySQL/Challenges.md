@@ -51,4 +51,17 @@ Students  and  both created  challenges. Because  is the maximum number of chall
 
 **SOLUTION**
 ````sql
+select t.hacker_id, t.name, t.total from (select h.hacker_id, h.name, count(c.challenge_id) as total 
+from hackers as h inner join challenges as c on h.hacker_id = c.hacker_id group by h.hacker_id, h.name) 
+as t group by total having count(total)=1 or count(total) = max(total
+````
+OR
+`````sql
+select h.hacker_id, h.name, count(c.challenge_id) as total from hackers as h 
+inner join challenges as c on h.hacker_id = c.hacker_id group by h.hacker_id 
+having total = (select count(c1.challenge_id) from challenges as c1 
+group by c1.hacker_id order by count(*) desc limit 1) 
+or total not in (select count(c2.challenge_id) from challenges as c2 
+group by c2.hacker_id having c2.hacker_id<> h.hacker_id)
+order by total desc, hacker_id;
 ````
