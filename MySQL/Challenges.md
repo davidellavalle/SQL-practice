@@ -49,13 +49,14 @@ For Sample Case 1, we can get the following details:
 ![alt text](https://s3.amazonaws.com/hr-challenge-images/19506/1458521836-24039e7523-ScreenShot2016-03-21at6.08.08AM.png)  
 Students  and  both created  challenges. Because  is the maximum number of challenges created, these students are included in the result.  
 
-**SOLUTION**
+**SOLUTION**  
+to run this solution we should change sql mode to only_full_group_by
 ````sql
 select t.hacker_id, t.name, t.total from (select h.hacker_id, h.name, count(c.challenge_id) as total 
 from hackers as h inner join challenges as c on h.hacker_id = c.hacker_id group by h.hacker_id, h.name) 
 as t group by total having count(total)=1 or count(total) = max(total
 ````
-OR
+otherwise
 `````sql
 select h.hacker_id, h.name, count(c.challenge_id) as total from hackers as h 
 inner join challenges as c on h.hacker_id = c.hacker_id group by h.hacker_id 
