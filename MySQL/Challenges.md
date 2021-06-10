@@ -66,3 +66,15 @@ or total not in (select count(c2.challenge_id) from challenges as c2
 group by c2.hacker_id having c2.hacker_id<> h.hacker_id)
 order by total desc, hacker_id;
 ````
+or
+````sql
+select h.hacker_id, h.name, count(c.challenge_id) as total 
+from hackers as h inner join challenges as c on h.hacker_id = c.hacker_id group by h.hacker_id,h.name
+having total = 
+(select count(c1.challenge_id) from challenges as c1 group by c1.hacker_id 
+order by count(c1.challenge_id) desc limit 1) or 
+total in 
+(select t.cnt from (select count(c2.challenge_id) as cnt from  challenges as c2 
+group by c2.hacker_id) as t group by t.cnt having count(t.cnt)=1)
+order by total desc, h.hacker_id;
+````
