@@ -50,4 +50,8 @@ The total scores for hackers 4806, 26071, 80305, and 49438 can be similarly calc
 
 **Solution**
 ````sql
+select t.hacker_id, t.name, sum(score2) as total from
+(select h.name, s.hacker_id, s.challenge_id, max(s.score)as score2 from submissions as s inner join hackers2 as h 
+on h.hacker_id=s.hacker_id group by hacker_id,h.name,challenge_id order by hacker_id) as t
+group by t.hacker_id, t.name having total >0 order by total desc, t.hacker_id; 
 ````
