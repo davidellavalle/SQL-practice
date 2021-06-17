@@ -1,8 +1,8 @@
 ![image](https://user-images.githubusercontent.com/73824871/122431003-59955380-cf94-11eb-9204-6c223618ec18.png)
 
+-- LINK : https://en.wikibooks.org/wiki/SQL_Exercises/Employee_management  
 
--- LINK : https://en.wikibooks.org/wiki/SQL_Exercises/Employee_management
--- Build the Schema
+## Build the Schema
 
 `````sql
 CREATE TABLE Departments (
