@@ -1,4 +1,4 @@
-![image](https://user-images.githubusercontent.com/73824871/122431003-59955380-cf94-11eb-9204-6c223618ec18.png)
+![image](https://user-images.githubusercontent.com/73824871/122431393-b5f87300-cf94-11eb-8522-fbd176f5bc99.png)
 
 -- LINK : https://en.wikibooks.org/wiki/SQL_Exercises/Employee_management  
 
