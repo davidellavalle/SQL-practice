@@ -13,7 +13,6 @@
 -- 1.9 Apply a 10% discount to all products.  
 -- 1.10 Apply a 10% discount to all products with a price larger than or equal to $120.  
 
-**Excercise Source**: "https://github.com/shekharbiswas/10DAYSQL/tree/main/SQL_exercise_01"
 
 **SOLUTION**
 
@@ -115,3 +114,5 @@ FROM
 WHERE
     price >= 120;
 ````
+
+## **Excercise Source**: "https://github.com/shekharbiswas/10DAYSQL/tree/main/SQL_exercise_01"
