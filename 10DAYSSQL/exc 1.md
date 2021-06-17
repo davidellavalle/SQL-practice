@@ -1,3 +1,1 @@
-<p align="center"><!img src="https://user-images.githubusercontent.com/73824871/122379144-df9aa580-cf66-11eb-8ee0-69ab539103c1.png"/></p>
-
-![A cute kitten](https://user-images.githubusercontent.com/73824871/122379144-df9aa580-cf66-11eb-8ee0-69ab539103c1.pngstyle=centerme)
+![image](https://user-images.githubusercontent.com/73824871/122379844-8a12c880-cf67-11eb-82fd-8cab2c47fad9.png)
