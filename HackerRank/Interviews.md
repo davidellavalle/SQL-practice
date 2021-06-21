@@ -49,10 +49,7 @@ Sum of total unique views 10 + 13 + 19 + 14 = 56
 
 Similarly, we can find the sums for contests 66556 and 94828.
 
-
-### SOLUTION
-
-Create tables
+### Create tables
 ````sql
 CREATE TABLE CONTESTS (
     CONTEST_ID INT,
@@ -117,5 +114,42 @@ SELECT
 FROM
     SUBMISSION_STATS;
 ````
-    
+
+### SOLUTION
+
+````
+
+SELECT 
+    ct.contest_id,
+    ct.hacker_id,
+    ct.name,
+    SUM(t2.total_submissions),
+    SUM(t2.total_accepted_submissions),
+    SUM(t1.total_views),
+    SUM(t1.total_unique_views)
+FROM
+    contests ct
+        INNER JOIN
+    colleges cl ON ct.contest_id = cl.contest_id
+        INNER JOIN
+    challenges ch ON ch.college_id = cl.college_id
+        LEFT JOIN
+    (SELECT 
+        vs.challenge_id,
+            SUM(vs.total_views) AS total_views,
+            SUM(vs.total_unique_views) AS total_unique_views
+    FROM
+        view_stats vs
+    GROUP BY vs.challenge_id) AS t1 ON t1.challenge_id = ch.challenge_id
+        LEFT JOIN
+    (SELECT 
+        challenge_id,
+            SUM(ss.total_submissions) AS total_submissions,
+            SUM(ss.total_accepted_submissions) AS total_accepted_submissions
+    FROM
+        submission_stats ss
+    GROUP BY ss.challenge_id) AS t2 ON t2.challenge_id = ch.challenge_id
+GROUP BY contest_id , ct.hacker_id , ct.name
+HAVING COALESCE(SUM(t2.total_submissions), 0) + COALESCE(SUM(t2.total_accepted_submissions), 0) + COALESCE(SUM(t1.total_views), 0) + COALESCE(SUM(t1.total_unique_views), 0) > 0
+ORDER BY ct.contest_id;
 ````
