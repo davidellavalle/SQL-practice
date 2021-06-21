@@ -1,6 +1,6 @@
-Samantha interviews many candidates from different colleges using coding challenges and contests. Write a query to print the contest_id, hacker_id, name, and the sums of total_submissions, total_accepted_submissions, total_views, and total_unique_views for each contest sorted by contest_id. Exclude the contest from the result if all four sums are .  
+Samantha interviews many candidates from different colleges using coding challenges and contests. Write a query to print the contest_id, hacker_id, name, and the sums of total_submissions, total_accepted_submissions, total_views, and total_unique_views for each contest sorted by contest_id. Exclude the contest from the result if all four sums are 0.  
 
-Note: A specific contest can be used to screen candidates at more than one college, but each college only holds  screening contest.  
+Note: A specific contest can be used to screen candidates at more than one college, but each college only holds 1 screening contest.  
 
 **Input Format**  
 
@@ -48,3 +48,74 @@ Sum of total views 43 + 72 + 26 + 15 = 156
 Sum of total unique views 10 + 13 + 19 + 14 = 56  
 
 Similarly, we can find the sums for contests 66556 and 94828.
+
+
+### SOLUTION
+
+Create tables
+````sql
+CREATE TABLE CONTESTS (
+    CONTEST_ID INT,
+    HACKER_ID INT,
+    NAME VARCHAR(200)
+);
+
+INSERT INTO CONTESTS VALUES (66406, 17973, 'ROSE'),(66556, 79153, 'ANGELA'),(94828, 80275, 'FRANK');
+
+SELECT 
+    *
+FROM
+    CONTESTS;
+
+CREATE TABLE COLLEGES (
+    COLLEGE_ID INT,
+    CONTEST_ID INT
+);
+
+INSERT INTO COLLEGES VALUES (11219, 66406),(32473, 66556),(56685, 94828);
+
+SELECT 
+    *
+FROM
+    COLLEGES;
+
+CREATE TABLE CHALLENGES (
+    CHALLENGE_ID INT,
+    COLLEGE_ID INT
+);
+
+INSERT INTO CHALLENGES VALUES (18765, 11219),(47127, 11219),(60292, 32473),(72974, 56685);
+
+SELECT 
+    *
+FROM
+    CHALLENGES;
+
+CREATE TABLE VIEW_STATS (
+    CHALLENGE_ID INT,
+    TOTAL_VIEWS INT,
+    TOTAL_UNIQUE_VIEWS INT
+);
+
+INSERT INTO VIEW_STATS VALUES (47127, 26, 19), (47127, 15, 14), (18765, 43, 10), (18765, 72, 13), (75516, 35, 17),(60292, 11, 10),(72974, 41, 15), (75516, 75, 11);
+
+SELECT 
+    *
+FROM
+    VIEW_STATS;
+
+CREATE TABLE SUBMISSION_STATS (
+    CHALLENGE_ID INT,
+    TOTAL_SUBMISSIONS INT,
+    TOTAL_ACCEPTED_SUBMISSIONS INT
+);
+
+INSERT INTO SUBMISSION_STATS  VALUES (75516, 34, 12), (47127, 27, 10),(47127, 56, 18), (75516, 74, 12),(75516, 83, 8),(72974, 68, 24),(72974, 82, 14),(47127, 28, 11);
+
+SELECT 
+    *
+FROM
+    SUBMISSION_STATS;
+````
+    
+````
