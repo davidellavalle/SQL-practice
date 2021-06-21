@@ -2,7 +2,7 @@ Samantha interviews many candidates from different colleges using coding challen
 
 Note: A specific contest can be used to screen candidates at more than one college, but each college only holds  screening contest.  
 
-Input Format  
+**Input Format**  
 
 The following tables hold interview data:  
 
@@ -21,7 +21,7 @@ View_Stats: The challenge_id is the id of the challenge, total_views is the numb
 Submission_Stats: The challenge_id is the id of the challenge, total_submissions is the number of submissions for the challenge, and total_accepted_submission is the number of submissions that achieved full scores.   
 ![image](https://user-images.githubusercontent.com/73824871/122764994-55bd4600-d2a0-11eb-9736-16b8b7d736ba.png)
 
-Sample Input  
+**Sample Input**  
 
 Contests Table:![image](https://user-images.githubusercontent.com/73824871/122765021-5a81fa00-d2a0-11eb-91aa-f23ac57682a3.png)  
   Colleges Table:![image](https://user-images.githubusercontent.com/73824871/122765031-5e158100-d2a0-11eb-98bd-3908f7289997.png)  
@@ -30,7 +30,7 @@ Contests Table:![image](https://user-images.githubusercontent.com/73824871/12276
   Submission_Stats Table: ![image](https://user-images.githubusercontent.com/73824871/122765092-6e2d6080-d2a0-11eb-923d-7f78c36399b4.png)  
 
 
-Sample Output  
+**Sample Output**  
 
 66406 17973 Rose 111 39 156 56  
 66556 79153 Angela 0 0 11 10  
